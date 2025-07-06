@@ -10,38 +10,105 @@
     <meta content="false" name="twcClient" id="twcClient">
     <meta name="aplus-touch" content="1">
     <style>
-        body, html { width: 100%; height: 100%; margin: 0; padding: 0; }
-        * { margin: 0; padding: 0; }
-        body { background-color: #fff; }
-        #browser img { width: 50px; }
-        #browser { margin: 0 10px; text-align: center; }
-        #contens { font-weight: bold; color: #2466f4; margin: -285px 0 10px; text-align: center; font-size: 20px; margin-bottom: 125px; }
-        .top-bar-guidance { font-size: 15px; color: #fff; height: 70%; line-height: 1.8; padding-left: 20px; padding-top: 20px; background: url(https://a6l.ooob.top/wj/banner.png) center top/contain no-repeat; }
-        .top-bar-guidance .icon-safari { width: 25px; height: 25px; vertical-align: middle; margin: 0 .2em; }
-        .app-download-tip { margin: 0 auto; width: 290px; text-align: center; font-size: 15px; color: #2466f4; background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAcAQMAAACak0ePAAAABlBMVEUAAAAdYfh+GakkAAAAAXRSTlMAQObYZgAAAA5JREFUCNdjwA8acEkAAAy4AIE4hQq/AAAAAElFTkSuQmCC) left center/auto 15px repeat-x; }
-        .app-download-tip .guidance-desc { background-color: #fff; padding: 0 5px; }
-        .app-download-tip .icon-sgd { width: 25px; height: 25px; vertical-align: middle; margin: 0 .2em; }
-        .app-download-btn { display: block; width: 214px; height: 40px; line-height: 40px; margin: 18px auto 0; text-align: center; font-size: 18px; color: #2466f4; border-radius: 20px; border: .5px #2466f4 solid; text-decoration: none; }
+        body, html {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: #fff;
+            overflow-x: hidden;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #wxqq-tip {
+            display: none;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        #browser {
+            margin: 0 10px;
+            text-align: center;
+        }
+        #browser img {
+            width: 50px;
+        }
+        #contens {
+            font-weight: bold;
+            color: #2466f4;
+            text-align: center;
+            font-size: 20px;
+            margin-bottom: 20px;
+            padding: 20px;
+        }
+        .top-bar-guidance {
+            font-size: 15px;
+            color: #fff;
+            padding: 20px;
+            background: url(https://a6l.ooob.top/wj/banner.png) center top / cover no-repeat;
+            flex-grow: 1;
+            line-height: 1.8;
+        }
+        .top-bar-guidance .icon-safari {
+            width: 25px;
+            height: 25px;
+            vertical-align: middle;
+            margin: 0 0.2em;
+        }
+        .app-download-tip {
+            margin: 20px auto;
+            width: 90%;
+            max-width: 290px;
+            text-align: center;
+            font-size: 15px;
+            color: #2466f4;
+            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAcAQMAAACak0ePAAAABlBMVEUAAAAdYfh+GakkAAAAAXRSTlMAQObYZgAAAA5JREFUCNdjwA8acEkAAAy4AIE4hQq/AAAAAElFTkSuQmCC) left center / auto 15px repeat-x;
+        }
+        .app-download-tip .guidance-desc {
+            background-color: #fff;
+            padding: 0 5px;
+        }
+        .app-download-tip .icon-sgd {
+            width: 25px;
+            height: 25px;
+            vertical-align: middle;
+            margin: 0 0.2em;
+        }
+        .app-download-btn {
+            display: block;
+            width: 214px;
+            height: 40px;
+            line-height: 40px;
+            margin: 18px auto 20px;
+            text-align: center;
+            font-size: 18px;
+            color: #2466f4;
+            border-radius: 20px;
+            border: 1px solid #2466f4;
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
-    <div id="wxqq-tip" style="display: none;">
+    <div id="wxqq-tip">
         <div class="top-bar-guidance">
-            <p>点击右上角<img src="https://a6l.ooob.top/wj/3dian.png" class="icon-safari">在 浏览器 打开</p>
-            <p>苹果设备<img src="https://a6l.ooob.top/wj/iphone.png" class="icon-safari">安卓设备<img src="https://a6l.ooob.top/wj/android.png" class="icon-safari">↗↗↗</p>
+            <p>点击右上角<img src="https://a6l.ooob.top/wj/3dian.png" class="icon-safari" alt="菜单">在 浏览器 打开</p>
+            <p>苹果设备<img src="https://a6l.ooob.top/wj/iphone.png" class="icon-safari" alt="iPhone">安卓设备<img src="https://a6l.ooob.top/wj/android.png" class="icon-safari" alt="Android">↗↗↗</p>
         </div>
         <div id="contens">
-            <p><br><br></p>
             <p>1. 本站不支持 微信或QQ 内访问</p>
-            <p><br></p>
             <p>2. 请按提示在手机 浏览器 打开</p>
         </div>
         <div class="app-download-tip">
             <span class="guidance-desc">https://a6l.ooob.top/qun</span>
         </div>
-        <p><br></p>
         <div class="app-download-tip">
-            <span class="guidance-desc">点击右上角<img src="https://a6l.ooob.top/wj/3dian.png" class="icon-sgd"> 选择从浏览器打开</span>
+            <span class="guidance-desc">点击右上角<img src="https://a6l.ooob.top/wj/3dian.png" class="icon-sgd" alt="菜单"> 选择从浏览器打开</span>
         </div>
         <a data-clipboard-text="https://a6l.ooob.top/qun" class="app-download-btn">点此复制本站网址</a>
     </div>
@@ -70,22 +137,42 @@
             conf.wxqqjump === "yes"
         ) {
             // 显示跳转提示页面
-            document.getElementById("wxqq-tip").style.display = "block";
+            document.getElementById("wxqq-tip").style.display = "flex";
         } else {
             // 非微信/QQ 浏览器，跳转到目标 URL
             window.location.href = "https://a6l.ooob.top/qun";
         }
 
+        // 防止微信拦截复制功能
+        function fallbackCopyTextToClipboard(text) {
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            textArea.style.position = "fixed";
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            try {
+                document.execCommand("copy");
+                layer.msg("复制成功，去自带的手机浏览器粘贴打开！", { time: 2000 });
+            } catch (err) {
+                layer.msg("复制失败，请手动复制链接！", { time: 2000 });
+            }
+            document.body.removeChild(textArea);
+        }
+
         // 初始化 ClipboardJS
-        new ClipboardJS(".app-download-btn");
-
-        // 复制按钮点击事件
-        $(".app-download-btn").click(function() {
-            layer.msg("复制成功，去自带的手机浏览器粘贴打开！", {
-                time: 2000
+        if (typeof ClipboardJS !== "undefined") {
+            new ClipboardJS(".app-download-btn").on("success", function() {
+                layer.msg("复制成功，去自带的手机浏览器粘贴打开！", { time: 2000 });
+            }).on("error", function() {
+                fallbackCopyTextToClipboard("https://a6l.ooob.top/qun");
             });
-        });
+        } else {
+            // 如果 ClipboardJS 加载失败，使用备用复制方案
+            document.querySelector(".app-download-btn").addEventListener("click", function() {
+                fallbackCopyTextToClipboard("https://a6l.ooob.top/qun");
+            });
+        }
     </script>
-
 </body>
 </html>
