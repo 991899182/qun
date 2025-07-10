@@ -1,178 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>使用浏览器打开</title>
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
-    <meta content="yes" name="apple-mobile-web-app-capable">
-    <meta content="black" name="apple-mobile-web-app-status-bar-style">
-    <meta name="format-detection" content="telephone=no">
-    <meta content="false" name="twcClient" id="twcClient">
-    <meta name="aplus-touch" content="1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>内嵌网页</title>
     <style>
-        body, html {
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+        iframe {
             width: 100%;
             height: 100%;
-            margin: 0;
-            padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            background-color: #fff;
-            overflow-x: hidden;
-        }
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        #wxqq-tip {
-            display: none;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        #browser {
-            margin: 0 10px;
-            text-align: center;
-        }
-        #browser img {
-            width: 50px;
-        }
-        #contens {
-            font-weight: bold;
-            color: #2466f4;
-            text-align: center;
-            font-size: 20px;
-            margin-bottom: 20px;
-            padding: 20px;
-        }
-        .top-bar-guidance {
-            font-size: 15px;
-            color: #fff;
-            padding: 20px;
-            background: url(https://a6l.ooob.top/wj/banner.png) center top / cover no-repeat;
-            flex-grow: 1;
-            line-height: 1.8;
-        }
-        .top-bar-guidance .icon-safari {
-            width: 25px;
-            height: 25px;
-            vertical-align: middle;
-            margin: 0 0.2em;
-        }
-        .app-download-tip {
-            margin: 20px auto;
-            width: 90%;
-            max-width: 290px;
-            text-align: center;
-            font-size: 15px;
-            color: #2466f4;
-            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAcAQMAAACak0ePAAAABlBMVEUAAAAdYfh+GakkAAAAAXRSTlMAQObYZgAAAA5JREFUCNdjwA8acEkAAAy4AIE4hQq/AAAAAElFTkSuQmCC) left center / auto 15px repeat-x;
-        }
-        .app-download-tip .guidance-desc {
-            background-color: #fff;
-            padding: 0 5px;
-        }
-        .app-download-tip .icon-sgd {
-            width: 25px;
-            height: 25px;
-            vertical-align: middle;
-            margin: 0 0.2em;
-        }
-        .app-download-btn {
-            display: block;
-            width: 214px;
-            height: 40px;
-            line-height: 40px;
-            margin: 18px auto 20px;
-            text-align: center;
-            font-size: 18px;
-            color: #2466f4;
-            border-radius: 20px;
-            border: 1px solid #2466f4;
-            text-decoration: none;
+            border: none;
         }
     </style>
 </head>
 <body>
-    <div id="wxqq-tip">
-        <div class="top-bar-guidance">
-            <p>点击右上角<img src="https://a6l.ooob.top/wj/3dian.png" class="icon-safari" alt="菜单">在 浏览器 打开</p>
-            <p>苹果设备<img src="https://a6l.ooob.top/wj/iphone.png" class="icon-safari" alt="iPhone">安卓设备<img src="https://a6l.ooob.top/wj/android.png" class="icon-safari" alt="Android">↗↗↗</p>
-        </div>
-        <div id="contens">
-            <p>1. 本站不支持 微信或QQ 内访问</p>
-            <p>2. 请按提示在手机 浏览器 打开</p>
-        </div>
-        <div class="app-download-tip">
-            <span class="guidance-desc">https://a6l.ooob.top/qun</span>
-        </div>
-        <div class="app-download-tip">
-            <span class="guidance-desc">点击右上角<img src="https://a6l.ooob.top/wj/3dian.png" class="icon-sgd" alt="菜单"> 选择从浏览器打开</span>
-        </div>
-        <a data-clipboard-text="https://a6l.ooob.top/qun" class="app-download-btn">点此复制本站网址</a>
-    </div>
-
-    <script src="https://a6l.ooob.top/wj/jquery-3.3.1.min.js"></script>
-    <script src="https://a6l.ooob.top/wj/clipboard.min.js"></script>
-    <script src="https://a6l.ooob.top/wj/layer/layer.js"></script>
-    <script>
-        // 配置项
-        const conf = {
-            wxqqjump: "yes",
-            vpayurl: "vpay",
-            payurl: "pay",
-            adminurl: "admin"
-        };
-
-        // 获取当前路径
-        const currentPath = window.location.pathname;
-
-        // 检测是否为微信/QQ 浏览器且不在排除路径
-        if (
-            (navigator.userAgent.includes("QQ/") || navigator.userAgent.includes("MicroMessenger")) &&
-            !currentPath.includes(conf.vpayurl) &&
-            !currentPath.includes(conf.adminurl) &&
-            !currentPath.includes(conf.payurl) &&
-            conf.wxqqjump === "yes"
-        ) {
-            // 显示跳转提示页面
-            document.getElementById("wxqq-tip").style.display = "flex";
-        } else {
-            // 非微信/QQ 浏览器，跳转到目标 URL
-            window.location.href = "https://a6l.ooob.top/qun";
-        }
-
-        // 防止微信拦截复制功能
-        function fallbackCopyTextToClipboard(text) {
-            const textArea = document.createElement("textarea");
-            textArea.value = text;
-            textArea.style.position = "fixed";
-            document.body.appendChild(textArea);
-            textArea.focus();
-            textArea.select();
-            try {
-                document.execCommand("copy");
-                layer.msg("复制成功，去自带的手机浏览器粘贴打开！", { time: 2000 });
-            } catch (err) {
-                layer.msg("复制失败，请手动复制链接！", { time: 2000 });
-            }
-            document.body.removeChild(textArea);
-        }
-
-        // 初始化 ClipboardJS
-        if (typeof ClipboardJS !== "undefined") {
-            new ClipboardJS(".app-download-btn").on("success", function() {
-                layer.msg("复制成功，去自带的手机浏览器粘贴打开！", { time: 2000 });
-            }).on("error", function() {
-                fallbackCopyTextToClipboard("https://a6l.ooob.top/qun");
-            });
-        } else {
-            // 如果 ClipboardJS 加载失败，使用备用复制方案
-            document.querySelector(".app-download-btn").addEventListener("click", function() {
-                fallbackCopyTextToClipboard("https://a6l.ooob.top/qun");
-            });
-        }
-    </script>
+    <iframe src="https://a6l.ooob.qun" title="内嵌网页"></iframe>
 </body>
 </html>
